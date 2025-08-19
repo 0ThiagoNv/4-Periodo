@@ -1,0 +1,82 @@
+package Ativadade04;
+
+public class Main {
+    public static void main(String[] args) {
+        ContaBancaria conta01 = new ContaBancaria(
+          "9940",
+          "Thiago",
+          54.0
+        );
+        ContaBancaria conta02 = new ContaBancaria(
+                "4090",
+                "Arthur",
+                10.50
+        );
+
+        conta01.depositar(300);
+
+        System.out.println("\n" + conta01.saldo + "\n");
+
+        conta01.sacar(100);
+        conta01.transferir(conta02, 50);
+
+        System.out.println("\n" + conta01.saldo + "\n");
+        System.out.println("\n" + conta02.saldo + "\n");
+    }
+}
+
+package Ativadade04;
+
+public class ContaBancaria {
+    String numeroConta;
+    String titular;
+    Double saldo;
+
+    public ContaBancaria(String numeroConta, String titular, Double saldo){
+        this.numeroConta = numeroConta;
+        this.titular = titular;
+        this.saldo = saldo;
+    }
+
+    @Override
+    public String toString() {
+        return "ContaBancaria: " +
+                "\n" + numeroConta +
+                "\n" + titular +
+                "\n" + saldo;
+    }
+
+    void depositar(double valor){
+        if (valor > 0) {
+            saldo += valor;
+            System.out.println(valor + " Valor depositado com sucesso!");
+        } else {
+            System.out.println("Valor para deposito, deve ser mais que 0.");
+        }
+    }
+
+    void sacar(double valor) {
+        if (valor > 0 && valor <= saldo) {
+            saldo -= valor;
+            System.out.println(valor + " Saque realizado com sucesso!");
+        } else {
+            System.out.println("Saldo para saque insuficiente.");
+        }
+    }
+
+    void transferir(ContaBancaria destino, double valor) {
+        if (valor > 0 && valor <= saldo) {
+            this.saldo -= valor;
+            destino.saldo += valor;
+            System.out.println(valor + " transferido para " + destino.titular);
+        } else {
+            System.out.println("Transferencia invalida, verifique seu saldo");
+        }
+    }
+
+    void exibirSaldo() {
+        System.out.println("Conta: " + numeroConta +
+                "\n" + titular +
+                "\n" + saldo);
+    }
+}
