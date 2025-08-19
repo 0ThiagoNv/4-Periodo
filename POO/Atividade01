@@ -1,0 +1,14 @@
+public class Main {
+    public static void main(String[] args) {
+        Categoria categoria = new Categoria(
+                "Biscoitos"
+        );
+        Produto produto01 = new Produto(
+                "Treloso",
+                22,
+                5.50,
+                categoria
+        );
+        System.out.println(produto01);
+    }
+}
