@@ -1,0 +1,4 @@
+Será necessario 3 classes, a classe cliente, produto e pagamento. 
+Na classe cliente, terá atributos para armazenar todos os dados do comprador, seu cpf, nome, endereço e telefone. 
+Na classe produto, possuirá todos os itens que são vendidos naquela loja, atributos como o codigo de identificacao do produto, nome, preço e quantidade de estoque e metodos para fazer a baixa na quantidade do produto em estoque.
+Na classe pagamento, vai ter atributos para o valor total da compra, e os metodos de pagamento, se será á vista ou parcelado e também metodos para retornar o valor das parcelas, fazer o calculo dos juros e aplicar cupom de desconto.
