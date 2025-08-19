@@ -1,0 +1,57 @@
+package Atividade02;
+
+public class Main {
+    public static void main(String[] args) {
+        Carro carro = new Carro(
+                "Civic",
+                "Azul",
+                2000
+        );
+
+        System.out.println("Velocidade atual: ");
+        System.out.println(carro);
+
+        carro.acelerarCarro();
+        carro.acelerarCarro();
+        carro.acelerarCarro();
+
+        System.out.println("\n" + carro);
+
+        carro.frearCarro();
+
+        System.out.println("\n" + carro);
+    }
+}
+
+
+package Atividade02;
+
+public class Carro {
+    String modelo;
+    String cor;
+    int ano;
+    Double velocidade = 0.0;
+
+    public Carro(String modelo, String cor, int ano){
+        this.modelo = modelo;
+        this.cor = cor;
+        this.ano = ano;
+    }
+
+    @Override
+    public String toString() {
+        return "Carro: " +
+                "\n" + modelo +
+                "\n" + cor +
+                "\n" + ano +
+                "\n" + velocidade;
+    }
+
+    void acelerarCarro(){
+        velocidade += 10;
+    }
+
+    void frearCarro(){
+        velocidade -= 10;
+    }
+}
