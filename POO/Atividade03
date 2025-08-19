@@ -1,0 +1,66 @@
+package Atividade03;
+
+public class Main {
+    public static void main(String[] args) {
+        Livro livro01 = new Livro(
+                "Biblioteca da meia noite",
+                "Matt Haig",
+                2020
+        );
+        System.out.println(livro01 + "\n");
+
+        livro01.emprestar();
+        livro01.emprestar();
+
+        System.out.println("\n" + livro01 + "\n");
+
+        livro01.devolver();
+        livro01.devolver();
+
+        System.out.println(livro01);
+
+    }
+}
+
+
+package Atividade03;
+
+public class Livro {
+    String titulo;
+    String autor;
+    int anoDePublicacao;
+    boolean disponibilidade = true;
+
+    public Livro(String titulo, String autor, int anoDePublicacao){
+        this.titulo = titulo;
+        this.autor = autor;
+        this.anoDePublicacao = anoDePublicacao;
+    }
+
+    @Override
+    public String toString() {
+        return "Livro: " +
+                "\n" + titulo +
+                "\n" + autor +
+                "\n" + anoDePublicacao +
+                "\nDisponibilidade: " + disponibilidade;
+    }
+
+    void emprestar(){
+        if(disponibilidade){
+            disponibilidade = false;
+            System.out.println("Aproveite a leitura!");
+        }else{
+            System.out.println("O livro ja esta em uso!");
+        }
+    }
+
+    void devolver(){
+        if(!disponibilidade){
+            disponibilidade = true;
+            System.out.println("Agradeço a devolução!");
+        }else{
+            System.out.println("O livro esta no estoque.");
+        }
+    }
+}
