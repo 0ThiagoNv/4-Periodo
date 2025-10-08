@@ -1,0 +1,60 @@
+package Questao3;
+
+public class Main {
+    public static void main(String[] args) {
+        Animal[] animais = {
+                new Gato(),
+                new Cachorro(),
+                new Passaro()
+        };
+
+        for (Animal a : animais) {
+            a.emitirSom();
+        }
+    }
+}
+
+
+
+
+package Questao3;
+
+public abstract class Animal {
+    public abstract void emitirSom();
+}
+
+
+
+
+package Questao3;
+
+public class Cachorro extends Animal {
+    @Override
+    public void emitirSom() {
+        System.out.println("cachorro: au au!");
+    }
+}
+
+
+
+
+package Questao3;
+
+public class Gato extends Animal {
+    @Override
+    public void emitirSom() {
+        System.out.println("gato: miau!");
+    }
+}
+
+
+
+
+package Questao3;
+
+public class Passaro extends Animal {
+    @Override
+    public void emitirSom() {
+        System.out.println("passaro: piu piu!");
+    }
+}
