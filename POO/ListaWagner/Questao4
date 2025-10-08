@@ -1,0 +1,79 @@
+package Questao4;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o valor que deseja pagar: ");
+        double valor = scanner.nextDouble();
+
+        Pagamento pagamento = null;
+
+        while (pagamento == null) {
+            System.out.println("Selecione a forma de pagamento:");
+            System.out.println("1 - Cartao de credito");
+            System.out.println("2 - Boleto");
+            int opcao = scanner.nextInt();
+
+            if (opcao == 1) {
+                pagamento = new CartaoCredito(valor);
+            } else if (opcao == 2) {
+                pagamento = new Boleto(valor);
+            } else {
+                System.out.println("Erro, tente novamente.\n");
+            }
+        }
+
+        pagamento.processarPagamento();
+        scanner.close();
+    }
+}
+
+
+
+
+package Questao4;
+
+public abstract class Pagamento {
+    double valor;
+
+    public Pagamento(double valor) {
+        this.valor = valor;
+    }
+
+    public abstract void processarPagamento();
+}
+
+
+
+
+package Questao4;
+
+public class CartaoCredito extends Pagamento {
+    public CartaoCredito(double valor) {
+        super(valor);
+    }
+
+    @Override
+    public void processarPagamento() {
+        System.out.println("Pagamento de: " + valor + " sera realizado com o cartão de credito.");
+    }
+}
+
+
+
+
+package Questao4;
+
+public class Boleto extends Pagamento {
+    public Boleto(double valor) {
+        super(valor);
+    }
+
+    @Override
+    public void processarPagamento() {
+        System.out.println("pagamento de: " + valor + " sera realizado por boleto bancario.");
+    }
+}
