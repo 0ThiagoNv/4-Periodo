@@ -1,0 +1,46 @@
+package Questao1;
+
+public class Main {
+    public static void main(String[] args) {
+        Circulo circulo = new Circulo("circulo", 7);
+
+        circulo.exibirNome();
+
+        System.out.println("area: " + circulo.calcularArea());
+    }
+}
+
+
+package Questao1;
+
+public abstract class Forma {
+    protected String nome;
+
+    public Forma(String nome) {
+        this.nome = nome;
+    }
+
+    public abstract double calcularArea();
+
+    public void exibirNome() {
+        System.out.println("Forma: " + nome);
+    }
+}
+
+
+
+package Questao1;
+
+public class Circulo extends Forma {
+    private double raio;
+
+    public Circulo(String nome, double raio) {
+        super(nome);
+        this.raio = raio;
+    }
+
+    @Override
+    public double calcularArea() {
+        return Math.PI * Math.pow(raio, 2);
+    }
+}
